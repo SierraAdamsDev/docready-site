@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DocReady",
   description: "Private symptom tracking for real life",
+   icons: {
+    icon: "/favicon.png",
+   },
 };
 
 export default function RootLayout({

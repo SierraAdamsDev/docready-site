@@ -143,8 +143,16 @@ export default function Home() {
       <footer className="border-t border-slate-200 px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>
-            © {new Date().getFullYear()} DocReady. Built by Grit & Flow Labs.
-          </p>
+            © {new Date().getFullYear()} DocReady. Built by{" "}
+            <a
+              href="https://gritandflowlabs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#2F80ED] hover:underline"
+            >
+              Grit & Flow Labs
+            </a>.
+            </p>
           <a href="/privacy" className="font-semibold text-[#2F80ED]">
             Privacy Policy
           </a>
