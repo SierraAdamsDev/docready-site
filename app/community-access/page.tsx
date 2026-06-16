@@ -121,8 +121,12 @@ export default function CommunityAccessPage() {
             href="mailto:hello@gritandflowlabs.com?subject=DocReady Community Access Program"
             className="mt-8 inline-flex rounded-full bg-white px-6 py-3 font-bold text-[#172033]"
           >
-            Become a Community Partner
+            Contact About Partnership
           </a>
+
+          <p className="mt-4 text-sm text-white/70">
+              Or email us directly at hello@gritandflowlabs.com
+          </p>
         </div>
       </section>
 
