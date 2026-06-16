@@ -57,6 +57,13 @@ export default function Home() {
               >
                 Privacy Policy
               </a>
+
+               <a
+                  href="/community-access"
+                  className="rounded-full border border-white/50 px-6 py-3 font-bold text-white"
+                >
+                  Community Access
+                </a>
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
