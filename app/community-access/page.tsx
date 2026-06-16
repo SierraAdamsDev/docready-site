@@ -124,9 +124,6 @@ export default function CommunityAccessPage() {
             Contact About Partnership
           </a>
 
-          <p className="mt-4 text-sm text-white/70">
-              Or email us directly at hello@gritandflowlabs.com
-          </p>
         </div>
       </section>
 
