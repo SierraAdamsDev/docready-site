@@ -1,14 +1,14 @@
 export default function CommunityAccessPage() {
   const partners = [
-    "Nonprofit organizations",
-    "Community health clinics",
-    "Physical therapy programs",
-    "Occupational therapy programs",
-    "Speech therapy programs",
-    "Disability advocacy organizations",
-    "Support groups",
-    "Schools and educational programs",
-    "Caregiver support organizations",
+    "Nonprofit Organizations",
+    "Community Health Clinics",
+    "Physical Therapy Programs",
+    "Occupational Therapy Programs",
+    "Speech Therapy Programs",
+    "Disability Advocacy Organizations",
+    "Support Groups",
+    "Schools and Educational Programs",
+    "Caregiver Support Organizations",
   ];
 
   const support = [
@@ -48,7 +48,7 @@ export default function CommunityAccessPage() {
 
       <section className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
         <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-xl font-black">Access with purpose</h2>
+          <h2 className="text-xl font-black">Access with Purpose</h2>
           <p className="mt-3 leading-7 text-slate-600">
             Eligible individuals may receive extended trial access, sponsored
             premium access, or other support opportunities based on the needs
@@ -57,7 +57,7 @@ export default function CommunityAccessPage() {
         </div>
 
         <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-xl font-black">Built for advocacy</h2>
+          <h2 className="text-xl font-black">Built for Advocacy</h2>
           <p className="mt-3 leading-7 text-slate-600">
             DocReady helps people organize symptoms, health stats, and reports
             so they can better prepare for appointments, therapies, and daily
@@ -66,7 +66,7 @@ export default function CommunityAccessPage() {
         </div>
 
         <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-xl font-black">Flexible partnerships</h2>
+          <h2 className="text-xl font-black">Flexible Partnerships</h2>
           <p className="mt-3 leading-7 text-slate-600">
             Every organization serves different needs. Community access may be
             provided through promo codes, sponsored Premium access, or direct
@@ -118,10 +118,10 @@ export default function CommunityAccessPage() {
           </p>
 
           <a
-            href="mailto:hello@docready.app?subject=DocReady Community Access Program"
+            href="mailto:hello@gritandflowlabs.com?subject=DocReady Community Access Program"
             className="mt-8 inline-flex rounded-full bg-white px-6 py-3 font-bold text-[#172033]"
           >
-            Contact Us
+            Become a Community Partner
           </a>
         </div>
       </section>
