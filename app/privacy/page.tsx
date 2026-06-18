@@ -48,7 +48,7 @@ return ( <main className="min-h-screen bg-[#F7FAFF] text-[#172033]"> <section cl
         </p>
 
         <p className="mt-4 text-slate-700">
-          Because DocReady does not require user accounts and does not store
+          DocReady does not require user accounts and does not store
           personal health information on company servers, there is no separate
           account deletion request process. Removing the app or clearing app
           data removes information stored by DocReady on the device.
