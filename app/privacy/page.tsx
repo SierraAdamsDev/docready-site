@@ -4,7 +4,7 @@ export default function PrivacyPolicy() {
 return ( <main className="min-h-screen bg-[#F7FAFF] text-[#172033]"> <section className="mx-auto max-w-3xl px-6 py-16"> <Link href="/" className="font-bold text-[#2F80ED]">
 ← Back to DocReady </Link>
 
-```
+
     <h1 className="mt-8 text-4xl font-black">Privacy Policy</h1>
     <p className="mt-3 text-slate-600">Last updated: June 2026</p>
 
