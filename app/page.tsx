@@ -66,21 +66,32 @@ export default function Home() {
                 </a>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href="#">
+            <div className="mt-10 flex flex-wrap items-start gap-6">
+              <div className="flex flex-col items-center">
+                <a href="#" aria-label="Google Play Coming Soon">
+                  <img
+                    src="/google-play-badge.png"
+                    alt="Get it on Google Play"
+                    className="h-12 w-auto opacity-90"
+                  />
+                </a>
+
+                <p className="mt-2 text-sm font-semibold text-white/80">
+                  Coming Soon
+                </p>
+              </div>
+
+              <a
+                href="https://apps.apple.com/us/app/docready-log/id6773218052"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
-                  src="/google-play-badge.png"
-                  alt="Get it on Google Play"
+                  src="/app-store-badge.svg"
+                  alt="Download on the App Store"
                   className="h-12 w-auto"
                 />
               </a>
-              
-                <img
-                  src="https://apps.apple.com/us/app/docready-log/id6773218052"
-                  alt="Get it on App Store"
-                  className="h-12 w-auto"
-                />
-              
             </div>
           </div>
         </div>
