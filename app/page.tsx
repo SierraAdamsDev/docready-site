@@ -76,7 +76,7 @@ export default function Home() {
               </a>
               
                 <img
-                  src="/app-store-badge.svg"
+                  src="https://apps.apple.com/us/app/docready-log/id6773218052"
                   alt="Get it on App Store"
                   className="h-12 w-auto"
                 />
