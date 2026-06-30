@@ -2,9 +2,10 @@ export default function Home() {
   const screenshots = [
     "Today",
     "Add Symptoms",
-    "Reports",
     "Health Stats",
     "History",
+    "Profiles",
+    "Reports",
     "PDF Export",
   ];
 
