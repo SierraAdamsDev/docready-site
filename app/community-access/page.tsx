@@ -1,19 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { FormEvent, useState } from "react";
 
 export default function CommunityAccessPage() {
-  const [formData, setFormData] = useState({
-    organization: "",
-    contactName: "",
-    email: "",
-    website: "",
-    organizationType: "",
-    participants: "",
-    message: "",
-  });
-
   const partners = [
     "Nonprofit Organizations",
     "Community Health Clinics",
@@ -25,31 +12,6 @@ export default function CommunityAccessPage() {
     "Schools and Educational Programs",
     "Caregiver Support Organizations",
   ];
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const subject = encodeURIComponent("DocReady Community Access Inquiry");
-
-    const body = encodeURIComponent(
-      `Organization Name: ${formData.organization}
-
-Contact Name: ${formData.contactName}
-
-Email: ${formData.email}
-
-Website: ${formData.website}
-
-Organization Type: ${formData.organizationType}
-
-Estimated Participants: ${formData.participants}
-
-Message:
-${formData.message}`
-    );
-
-    window.location.href = `mailto:hello@gritandflowlabs.com?subject=${subject}&body=${body}`;
-  }
 
   return (
     <main className="min-h-screen bg-[#F7FAFF] text-[#172033]">
@@ -149,57 +111,52 @@ ${formData.message}`
             program.
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
+          <form
+            name="community-access"
+            method="POST"
+            action="/community-access/success"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            className="mt-8 grid gap-5"
+          >
+            <input type="hidden" name="form-name" value="community-access" />
+            <input type="hidden" name="bot-field" />
+
             <input
               required
               type="text"
+              name="organization"
               placeholder="Organization name"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.organization}
-              onChange={(e) =>
-                setFormData({ ...formData, organization: e.target.value })
-              }
             />
 
             <input
               required
               type="text"
+              name="contactName"
               placeholder="Contact name"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.contactName}
-              onChange={(e) =>
-                setFormData({ ...formData, contactName: e.target.value })
-              }
             />
 
             <input
               required
               type="email"
+              name="email"
               placeholder="Contact email"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
             />
 
             <input
               type="text"
+              name="website"
               placeholder="Organization website"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.website}
-              onChange={(e) =>
-                setFormData({ ...formData, website: e.target.value })
-              }
             />
 
             <select
               required
+              name="organizationType"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.organizationType}
-              onChange={(e) =>
-                setFormData({ ...formData, organizationType: e.target.value })
-              }
             >
               <option value="">Organization type</option>
               <option value="Nonprofit">Nonprofit</option>
@@ -212,11 +169,8 @@ ${formData.message}`
 
             <select
               required
+              name="participants"
               className="rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.participants}
-              onChange={(e) =>
-                setFormData({ ...formData, participants: e.target.value })
-              }
             >
               <option value="">Estimated participants</option>
               <option value="Under 25">Under 25</option>
@@ -227,25 +181,17 @@ ${formData.message}`
 
             <textarea
               required
+              name="message"
               placeholder="Tell us who you serve and how DocReady could support your community."
               className="min-h-40 rounded-2xl border border-slate-200 px-4 py-3"
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
             />
 
             <button
               type="submit"
               className="rounded-full bg-[#2F80ED] px-6 py-3 font-bold text-white shadow-lg"
             >
-              Submit Inquiry
+              Submit Application
             </button>
-
-            <p className="text-sm text-slate-500">
-              This form opens an email draft addressed to
-              hello@gritandflowlabs.com.
-            </p>
           </form>
         </div>
       </section>
