@@ -115,8 +115,8 @@ export default function CommunityAccessPage() {
             name="community-access"
             method="POST"
             action="/community-access/success"
-            netlify="true"
-            netlify-honeypot="bot-field"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             className="mt-8 grid gap-5"
           >
             <input type="hidden" name="form-name" value="community-access" />
