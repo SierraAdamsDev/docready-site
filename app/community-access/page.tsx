@@ -30,23 +30,22 @@ export default function CommunityAccessPage() {
 
     formData.set("form-name", "community-access");
 
-    const encoded = new URLSearchParams();
-
-    formData.forEach((value, key) => {
-      encoded.append(key, value.toString());
-    });
-
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/_forms.html", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: encoded.toString(),
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [
+            key,
+            value.toString(),
+          ])
+        ).toString(),
       });
 
       if (!response.ok) {
-        throw new Error("Netlify form submission failed.");
+        throw new Error("Submission failed");
       }
 
       setSubmitted(true);
@@ -167,7 +166,13 @@ export default function CommunityAccessPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
+            <form
+              name="community-access"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="mt-8 grid gap-5"
+            >
               <input type="hidden" name="form-name" value="community-access" />
 
               <input
