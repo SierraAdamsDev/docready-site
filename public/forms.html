@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form name="community-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input type="hidden" name="form-name" value="community-access" />
-      <input name="bot-field" />
-      <input name="organization" />
-      <input name="contactName" />
-      <input name="email" />
-      <input name="website" />
-      <input name="organizationType" />
-      <input name="participants" />
+    <form name="community-access" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="organization" />
+      <input type="text" name="contactName" />
+      <input type="email" name="email" />
+      <input type="text" name="website" />
+      <input type="text" name="organizationType" />
+      <input type="text" name="participants" />
       <textarea name="message"></textarea>
     </form>
   </body>

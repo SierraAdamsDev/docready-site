@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { FormEvent, useState } from "react";
 
 export default function CommunityAccessPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
   const partners = [
     "Nonprofit Organizations",
     "Community Health Clinics",
@@ -12,6 +18,34 @@ export default function CommunityAccessPage() {
     "Schools and Educational Programs",
     "Caregiver Support Organizations",
   ];
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append("form-name", "community-access");
+
+    const encoded = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      encoded.append(key, value.toString());
+    });
+
+    await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: encoded.toString(),
+    });
+
+    setSubmitting(false);
+    setSubmitted(true);
+    form.reset();
+  }
 
   return (
     <main className="min-h-screen bg-[#F7FAFF] text-[#172033]">
@@ -111,88 +145,91 @@ export default function CommunityAccessPage() {
             program.
           </p>
 
-          <form
-            name="community-access"
-            method="POST"
-            action="/community-access/success"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            className="mt-8 grid gap-5"
-          >
-            <input type="hidden" name="form-name" value="community-access" />
-            <input type="hidden" name="bot-field" />
+          {submitted ? (
+            <div className="mt-8 rounded-3xl bg-[#EAF2FF] p-6 text-[#172033]">
+              <h3 className="text-xl font-black">Application received.</h3>
+              <p className="mt-2 leading-7">
+                Thank you. We received your Community Access inquiry and will
+                follow up using the contact information provided.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-8 grid gap-5">
+              <input type="hidden" name="form-name" value="community-access" />
 
-            <input
-              required
-              type="text"
-              name="organization"
-              placeholder="Organization name"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            />
+              <input
+                required
+                type="text"
+                name="organization"
+                placeholder="Organization name"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              />
 
-            <input
-              required
-              type="text"
-              name="contactName"
-              placeholder="Contact name"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            />
+              <input
+                required
+                type="text"
+                name="contactName"
+                placeholder="Contact name"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              />
 
-            <input
-              required
-              type="email"
-              name="email"
-              placeholder="Contact email"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            />
+              <input
+                required
+                type="email"
+                name="email"
+                placeholder="Contact email"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              />
 
-            <input
-              type="text"
-              name="website"
-              placeholder="Organization website"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            />
+              <input
+                type="text"
+                name="website"
+                placeholder="Organization website"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              />
 
-            <select
-              required
-              name="organizationType"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            >
-              <option value="">Organization type</option>
-              <option value="Nonprofit">Nonprofit</option>
-              <option value="School">School</option>
-              <option value="Clinic">Clinic</option>
-              <option value="Therapy Provider">Therapy Provider</option>
-              <option value="Support Group">Support Group</option>
-              <option value="Other">Other</option>
-            </select>
+              <select
+                required
+                name="organizationType"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              >
+                <option value="">Organization type</option>
+                <option value="Nonprofit">Nonprofit</option>
+                <option value="School">School</option>
+                <option value="Clinic">Clinic</option>
+                <option value="Therapy Provider">Therapy Provider</option>
+                <option value="Support Group">Support Group</option>
+                <option value="Other">Other</option>
+              </select>
 
-            <select
-              required
-              name="participants"
-              className="rounded-2xl border border-slate-200 px-4 py-3"
-            >
-              <option value="">Estimated participants</option>
-              <option value="Under 25">Under 25</option>
-              <option value="25-100">25–100</option>
-              <option value="100-500">100–500</option>
-              <option value="500+">500+</option>
-            </select>
+              <select
+                required
+                name="participants"
+                className="rounded-2xl border border-slate-200 px-4 py-3"
+              >
+                <option value="">Estimated participants</option>
+                <option value="Under 25">Under 25</option>
+                <option value="25-100">25–100</option>
+                <option value="100-500">100–500</option>
+                <option value="500+">500+</option>
+              </select>
 
-            <textarea
-              required
-              name="message"
-              placeholder="Tell us who you serve and how DocReady could support your community."
-              className="min-h-40 rounded-2xl border border-slate-200 px-4 py-3"
-            />
+              <textarea
+                required
+                name="message"
+                placeholder="Tell us who you serve and how DocReady could support your community."
+                className="min-h-40 rounded-2xl border border-slate-200 px-4 py-3"
+              />
 
-            <button
-              type="submit"
-              className="rounded-full bg-[#2F80ED] px-6 py-3 font-bold text-white shadow-lg"
-            >
-              Submit Application
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="rounded-full bg-[#2F80ED] px-6 py-3 font-bold text-white shadow-lg disabled:opacity-60"
+              >
+                {submitting ? "Submitting..." : "Submit Application"}
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
