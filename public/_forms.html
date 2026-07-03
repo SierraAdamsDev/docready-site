@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form name="community-access" netlify netlify-honeypot="bot-field" hidden>
+    <form name="community-access" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="community-access" />
       <input type="text" name="organization" />
       <input type="text" name="contactName" />
       <input type="email" name="email" />

@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 export default function CommunityAccessPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const partners = [
     "Nonprofit Organizations",
@@ -22,11 +23,12 @@ export default function CommunityAccessPage() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitting(true);
+    setErrorMessage("");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    formData.append("form-name", "community-access");
+    formData.set("form-name", "community-access");
 
     const encoded = new URLSearchParams();
 
@@ -34,17 +36,28 @@ export default function CommunityAccessPage() {
       encoded.append(key, value.toString());
     });
 
-    await fetch("/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: encoded.toString(),
-    });
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: encoded.toString(),
+      });
 
-    setSubmitting(false);
-    setSubmitted(true);
-    form.reset();
+      if (!response.ok) {
+        throw new Error("Netlify form submission failed.");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setErrorMessage(
+        "Something went wrong. Please email hello@gritandflowlabs.com directly."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -220,6 +233,12 @@ export default function CommunityAccessPage() {
                 placeholder="Tell us who you serve and how DocReady could support your community."
                 className="min-h-40 rounded-2xl border border-slate-200 px-4 py-3"
               />
+
+              {errorMessage ? (
+                <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+                  {errorMessage}
+                </p>
+              ) : null}
 
               <button
                 type="submit"
