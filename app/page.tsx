@@ -52,6 +52,7 @@ export default function Home() {
               >
                 Explore Features
               </a>
+
               <a
                 href="/privacy"
                 className="rounded-full border border-white/50 px-6 py-3 font-bold text-white"
@@ -59,29 +60,26 @@ export default function Home() {
                 Privacy Policy
               </a>
 
-               <a
-                  href="/community-access"
-                  className="rounded-full border border-white/50 px-6 py-3 font-bold text-white"
-                >
-                  Community Access
-                </a>
+              <a
+                href="/community-access"
+                className="rounded-full border border-white/50 px-6 py-3 font-bold text-white"
+              >
+                Community Access
+              </a>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-start gap-6">
-              <div className="flex flex-col items-center">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.gritandflowlabs.docready"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="/google-play-badge.png"
-                    alt="Get it on Google Play"
-                    className="h-12 w-auto"
-                  />
-                </a>
-
-                
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.gritandflowlabs.docready"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/google-play-badge.png"
+                  alt="Get it on Google Play"
+                  className="h-12 w-auto"
+                />
+              </a>
 
               <a
                 href="https://apps.apple.com/us/app/docready-log/id6773218052"
@@ -151,6 +149,7 @@ export default function Home() {
             on your device. The app does not sell your data, show ads, or use
             your information for marketing.
           </p>
+
           <a
             href="/privacy"
             className="mt-8 inline-flex rounded-full bg-white px-6 py-3 font-bold text-[#172033]"
@@ -171,8 +170,10 @@ export default function Home() {
               className="font-semibold text-[#2F80ED] hover:underline"
             >
               Grit & Flow Labs
-            </a>.
-            </p>
+            </a>
+            .
+          </p>
+
           <a href="/privacy" className="font-semibold text-[#2F80ED]">
             Privacy Policy
           </a>
