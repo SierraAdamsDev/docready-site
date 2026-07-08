@@ -69,18 +69,19 @@ export default function Home() {
 
             <div className="mt-10 flex flex-wrap items-start gap-6">
               <div className="flex flex-col items-center">
-                <a href="#" aria-label="Google Play Coming Soon">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.gritandflowlabs.docready"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img
                     src="/google-play-badge.png"
                     alt="Get it on Google Play"
-                    className="h-12 w-auto opacity-90"
+                    className="h-12 w-auto"
                   />
                 </a>
 
-                <p className="mt-2 text-sm font-semibold text-white/80">
-                  Coming Soon
-                </p>
-              </div>
+                
 
               <a
                 href="https://apps.apple.com/us/app/docready-log/id6773218052"
